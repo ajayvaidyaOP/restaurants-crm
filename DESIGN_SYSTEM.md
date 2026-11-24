@@ -25,7 +25,7 @@ before calling anything done.
 --success:          #22C55E
 --warning:          #F59E0B
 --danger:           #EF4444
---primary:          #9F1239   /* wine/burgundy — see rationale below */
+--primary:          #4F46E5   /* indigo — modern minimal SaaS accent */
 --primary-foreground: #FFFFFF
 ```
 
@@ -41,7 +41,7 @@ Dark mode (own token set, not `background * 0.1` math):
 --success:           #34D399
 --warning:           #FBBF24
 --danger:            #F87171
---primary:           #FB7185   /* brighter rose for dark-bg contrast */
+--primary:           #818CF8   /* lighter indigo for dark-bg contrast */
 --primary-foreground: #1F0A0F
 ```
 
@@ -74,7 +74,7 @@ Font: Geist (or Inter as fallback) — one premium sans, no mixing.
 Top nav (workspace switcher, search/command palette, notifications, user
 menu) + collapsible icon+label sidebar + content area. Sidebar collapses to
 an off-canvas drawer below `lg` (this is a correctness requirement, not
-cosmetic — `nodedr-pos` shipped a fixed-256px sidebar that ate 66% of a
+cosmetic — `restaurant-crm-pos` shipped a fixed-256px sidebar that ate 66% of a
 phone viewport before it was caught and fixed; do not repeat that here,
 verify at ~375px/~768px/desktop with real screenshots before calling any
 layout done).
