@@ -1,12 +1,12 @@
 cff-version: 1.2.0
-message: "If you use Nodedr OrderRestro in research, teaching, or a public project, please cite it."
+message: "If you use Restaurant CRM in research, teaching, or a public project, please cite it."
 type: software
-title: "Nodedr OrderRestro"
+title: "Restaurant CRM"
 authors:
-  - family-names: Ranjit
-    given-names: Raktim
-    website: https://www.raktimranjit.com/
-repository-code: https://github.com/Raktim94/nodedr-restaurant-pos
-url: https://orderrestro.nodedr.com/
+  - family-names: Contributors
+    given-names: Restaurant CRM
+    website: 
+repository-code: https://github.com/your-org/restaurant-crm
+url: https://example.com/
 license: AGPL-3.0-only
 abstract: "Offline-first, self-hosted restaurant management software with point of sale, tables, kitchen display, reservations, and inventory."

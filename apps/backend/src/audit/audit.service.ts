@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import type { AuditLogListQueryDto } from '@nodedr-restaurant/types';
+import type { AuditLogListQueryDto } from '@restaurant-crm/types';
 import type { Prisma } from '@prisma/client';
 import { PrismaService } from '../prisma/prisma.service';
 
