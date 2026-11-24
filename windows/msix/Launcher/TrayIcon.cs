@@ -1,4 +1,4 @@
-namespace Restaurant CRM.Launcher;
+namespace RestaurantCRM.Launcher;
 
 /// <summary>
 /// System tray presence for embedded-server mode: lets the till window be

@@ -34,7 +34,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>Restaurant CRM.Launcher</RootNamespace>
-    <AssemblyName>Restaurant CRM</AssemblyName>
+    <AssemblyName>RestaurantCRM</AssemblyName>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <ApplicationIcon>..\Assets\app.ico</ApplicationIcon>
 

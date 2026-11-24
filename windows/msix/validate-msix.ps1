@@ -1,7 +1,7 @@
 #Requires -Version 5.1
 <#
 .SYNOPSIS
-    Sanity-checks a built Restaurant CRM.msix before install-testing, sideload
+    Sanity-checks a built RestaurantCRM.msix before install-testing, sideload
     distribution, or Store submission. Does NOT replace the Windows App
     Certification Kit (WACK) — run that too before a real Store submission
     (see README.md "Store submission checklist").
@@ -27,7 +27,7 @@
          packages.
 
 .PARAMETER MsixPath
-    Path to the .msix to validate. Defaults to ./out/Restaurant CRM.msix (the
+    Path to the .msix to validate. Defaults to ./out/RestaurantCRM.msix (the
     build-windows-msix.ps1 default output location).
 
 .PARAMETER AllowPlaceholderPublisher
@@ -54,13 +54,13 @@
 
 .EXAMPLE
     ./validate-msix.ps1
-    ./validate-msix.ps1 -MsixPath .\out\Restaurant CRM.msix
+    ./validate-msix.ps1 -MsixPath .\out\RestaurantCRM.msix
     ./validate-msix.ps1 -AllowPlaceholderPublisher   # CI/local self-signed test builds only
     ./validate-msix.ps1 -ExpectEmbeddedServer        # packages built with -IncludeEmbeddedServer
 #>
 [CmdletBinding()]
 param(
-    [string]$MsixPath = (Join-Path $PSScriptRoot 'out\Restaurant CRM.msix'),
+    [string]$MsixPath = (Join-Path $PSScriptRoot 'out\RestaurantCRM.msix'),
     [switch]$AllowPlaceholderPublisher,
     [switch]$ExpectEmbeddedServer
 )
@@ -228,7 +228,7 @@ try {
 
         Test-Check "No real secrets baked into the embedded server assets" {
             # backend.env (with the real, generated JWT_SECRET) is written
-            # at RUNTIME to %LOCALAPPDATA%\Restaurant CRM\server\ — it must
+            # at RUNTIME to %LOCALAPPDATA%\RestaurantCRM\server\ — it must
             # never exist inside the built package itself. .pdb/.git
             # likewise have no legitimate reason to appear even inside a
             # real node_modules tree.
@@ -247,7 +247,7 @@ try {
     }
 
     Test-Check "Launcher executable and WebView2Loader.dll are present" {
-        if (-not ($allFiles | Where-Object Name -eq 'Restaurant CRM.exe')) { throw "Restaurant CRM.exe not found in package — publish/staging likely failed silently" }
+        if (-not ($allFiles | Where-Object Name -eq 'RestaurantCRM.exe')) { throw "RestaurantCRM.exe not found in package — publish/staging likely failed silently" }
         if (-not ($allFiles | Where-Object Name -eq 'WebView2Loader.dll')) { throw "WebView2Loader.dll not found — the launcher will fail at runtime with no native WebView2 loader present" }
     }
 

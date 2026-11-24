@@ -16,7 +16,7 @@
        folder publish — not single-file, see Launcher.csproj for why).
     2. Stage the published output + Assets/ + AppxManifest.xml into one
        folder (the exact shape Windows expects inside an .msix).
-    3. `makeappx pack` that folder into Restaurant CRM.msix.
+    3. `makeappx pack` that folder into RestaurantCRM.msix.
     4. Optionally sign it with a throwaway self-signed test cert
        (-SelfSignedTest) and/or install it locally (-InstallLocally) for a
        real install/launch round-trip.
@@ -69,7 +69,7 @@ $manifestSrc = Join-Path $root 'AppxManifest.xml'
 $assetsSrc = Join-Path $root 'Assets'
 $publishDir = Join-Path $root 'out/publish'
 $stageDir = Join-Path $root 'out/stage'
-$msixOut = Join-Path $root 'out/Restaurant CRM.msix'
+$msixOut = Join-Path $root 'out/RestaurantCRM.msix'
 
 Write-Host "== Restaurant CRM Windows MSIX build ==" -ForegroundColor Cyan
 Write-Host "Configuration=$Configuration Platform=$Platform" -ForegroundColor Cyan
@@ -87,8 +87,8 @@ Remove-Item -Recurse -Force $publishDir, $stageDir, $msixOut -ErrorAction Silent
 & dotnet publish $launcherProj -c $Configuration -r "win-$Platform" -o $publishDir
 if ($LASTEXITCODE -ne 0) { throw "dotnet publish failed with exit code $LASTEXITCODE" }
 
-$exePath = Join-Path $publishDir 'Restaurant CRM.exe'
-if (-not (Test-Path $exePath)) { throw "Publish succeeded but Restaurant CRM.exe was not found at $exePath" }
+$exePath = Join-Path $publishDir 'RestaurantCRM.exe'
+if (-not (Test-Path $exePath)) { throw "Publish succeeded but RestaurantCRM.exe was not found at $exePath" }
 
 # --- 2. Stage the package layout --------------------------------------------
 New-Item -ItemType Directory -Force -Path $stageDir | Out-Null
@@ -121,7 +121,7 @@ if ($SelfSignedTest) {
     if (-not (Get-Command signtool -ErrorAction SilentlyContinue)) {
         throw "signtool not found on PATH — required for -SelfSignedTest. Install the Windows 10/11 SDK."
     }
-    $certDir = Join-Path $env:LOCALAPPDATA 'Restaurant CRM\dev-cert'
+    $certDir = Join-Path $env:LOCALAPPDATA 'RestaurantCRM\dev-cert'
     New-Item -ItemType Directory -Force -Path $certDir | Out-Null
     $pfxPath = Join-Path $certDir 'restaurant-crm-dev.pfx'
     $cerPath = Join-Path $certDir 'restaurant-crm-dev.cer'

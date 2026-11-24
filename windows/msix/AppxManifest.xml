@@ -6,21 +6,19 @@
   IgnorableNamespaces="uap rescap">
 
   <!--
-    Package identity. Name/Publisher come from Partner Center's "View
-    product identity" page for this app (Store ID 9NVPNLWW2FZ4, PFN
-    NODEDRINFOTECHLIMITED.Restaurant CRMRestaurant CRM_wsh4jzg5a6682) — Publisher MUST
-    exactly match the CN issued there, or Store validation and any
-    Add-AppxPackage install reject the package.
+    Package identity. For a production/store build, set Name/Publisher to the
+    values from your Partner Center product identity. This default is a
+    generic development identity used for local/CI builds.
   -->
   <Identity
-    Name="NODEDRINFOTECHLIMITED.Restaurant CRMRestaurant CRM"
-    Publisher="CN=11C721FC-E399-4888-B532-7BFCD5C491B3"
+    Name="RestaurantCRM"
+    Publisher="CN=RestaurantCRM"
     Version="1.0.4.0"
     ProcessorArchitecture="x64" />
 
   <Properties>
     <DisplayName>Restaurant CRM</DisplayName>
-    <PublisherDisplayName>NODEDR INFOTECH LIMITED</PublisherDisplayName>
+    <PublisherDisplayName>Restaurant CRM</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -37,7 +35,7 @@
   </Dependencies>
 
   <Applications>
-    <Application Id="Restaurant CRM" Executable="Restaurant CRM.exe" EntryPoint="Windows.FullTrustApplication">
+    <Application Id="RestaurantCRM" Executable="RestaurantCRM.exe" EntryPoint="Windows.FullTrustApplication">
       <uap:VisualElements
         DisplayName="Restaurant CRM"
         Description="Offline-first restaurant POS, tables, kitchen display, and menu management."

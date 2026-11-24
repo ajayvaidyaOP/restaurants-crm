@@ -1,4 +1,4 @@
-namespace Restaurant CRM.Launcher;
+namespace RestaurantCRM.Launcher;
 
 internal enum FirstRunChoice
 {

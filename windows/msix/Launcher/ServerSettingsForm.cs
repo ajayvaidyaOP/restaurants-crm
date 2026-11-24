@@ -1,6 +1,6 @@
 using System.Runtime.InteropServices;
 
-namespace Restaurant CRM.Launcher;
+namespace RestaurantCRM.Launcher;
 
 /// <summary>
 /// First-run (and "change server") dialog: the restaurant's own Restaurant CRM

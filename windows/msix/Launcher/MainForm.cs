@@ -2,7 +2,7 @@ using System.Diagnostics;
 using Microsoft.Web.WebView2.Core;
 using Microsoft.Web.WebView2.WinForms;
 
-namespace Restaurant CRM.Launcher;
+namespace RestaurantCRM.Launcher;
 
 internal sealed class MainForm : Form
 {

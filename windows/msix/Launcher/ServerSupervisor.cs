@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Restaurant CRM.Launcher;
+namespace RestaurantCRM.Launcher;
 
 /// <summary>
 /// Owns the lifecycle of the embedded server: Postgres, the NestJS
@@ -96,7 +96,7 @@ internal sealed class ServerSupervisor : IDisposable
     // as child processes, even for a runFullTrust app — confirmed on real
     // CI: initdb.exe failed with "Access is denied" trying to run
     // postgres.exe -V directly from the install location. Only the
-    // package's own declared entry point (Restaurant CRM.exe itself) is
+    // package's own declared entry point (RestaurantCRM.exe itself) is
     // actually launchable in place. The standard fix: copy the runtime
     // payload to a writable location once, and execute everything from
     // there instead — see ServerPaths.RuntimeServerDir.
@@ -107,7 +107,7 @@ internal sealed class ServerSupervisor : IDisposable
         // possibly slow — a few hundred MB — cost, not something to redo
         // on every start). Known v1 limitation: doesn't detect an MSIX
         // upgrade to a newer version and re-copy automatically; deleting
-        // %LOCALAPPDATA%\Restaurant CRM\server\server-runtime forces a
+        // %LOCALAPPDATA%\RestaurantCRM\server\server-runtime forces a
         // fresh copy if ever needed.
         if (File.Exists(ServerPaths.NodeExePath)) return;
 

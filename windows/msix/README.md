@@ -193,8 +193,8 @@ What to do about it:
    `validate-msix.ps1` fails loudly if this ever regresses to the
    placeholder.
 2. ~~`Identity/@Name`~~ — **done.** Set to the real Store-reserved package
-   identity `NODEDRINFOTECHLIMITED.Restaurant CRMRestaurant CRM` (Store ID `9NVPNLWW2FZ4`,
-   Package Family Name `NODEDRINFOTECHLIMITED.Restaurant CRMRestaurant CRM_wsh4jzg5a6682`),
+   identity `RestaurantCRM` (your Store ID,
+   Package Family Name `RestaurantCRM_<PUBLISHER_ID>`),
    from Partner Center's "View product identity" page.
 3. **Signing** — real Store submissions are signed automatically by the
    Store on ingestion; you do not need your own certificate for Store
@@ -226,14 +226,14 @@ Per this project's own "don't fake test results" rule:
   uninstalls. Real, automated, machine-verified — not a manual claim.
 - **Upgrade/update (CI, windows-latest): verified, not just implied.**
   The workflow installs v1.0.0.0, writes a fake pre-existing
-  `%LOCALAPPDATA%\Restaurant CRM\config.json` (simulating a configured
+  `%LOCALAPPDATA%\RestaurantCRM\config.json` (simulating a configured
   server address), bumps to v1.0.0.1, reinstalls in place, then asserts
   both that `Get-AppxPackage` reports the new version and that the
   config file survived byte-for-byte. This used to be an assumption
   ("`AppConfig` lives outside the install directory, so it should
   survive") — it's now an actual round-trip test.
 - **Correct app identity/signing: verified.** `AppxManifest.xml` carries
-  the real Partner Center identity (`NODEDRINFOTECHLIMITED.Restaurant CRMRestaurant CRM`,
+  the real Partner Center identity (`RestaurantCRM`,
   `CN=11C721FC-E399-4888-B532-7BFCD5C491B3`); the CI self-signed test
   cert's subject is read from that same manifest field so install
   succeeds only when they genuinely match, the same constraint Windows

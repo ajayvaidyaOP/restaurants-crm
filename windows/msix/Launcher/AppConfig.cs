@@ -1,7 +1,7 @@
 using System.Net.Http;
 using System.Text.Json;
 
-namespace Restaurant CRM.Launcher;
+namespace RestaurantCRM.Launcher;
 
 /// <summary>
 /// Per-user configuration: which LAN/local Restaurant CRM server this client

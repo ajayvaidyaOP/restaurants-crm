@@ -1,8 +1,8 @@
-namespace Restaurant CRM.Launcher;
+namespace RestaurantCRM.Launcher;
 
 /// <summary>
 /// Single source of truth for where the embedded server's writable state
-/// lives (%LOCALAPPDATA%\Restaurant CRM\server\...) and where its read-only
+/// lives (%LOCALAPPDATA%\RestaurantCRM\server\...) and where its read-only
 /// runtime assets ship inside the MSIX install directory. Mirrors
 /// AppConfig's existing ConfigDir pattern — writable state never goes
 /// inside the install directory (read-only after install, not guaranteed
