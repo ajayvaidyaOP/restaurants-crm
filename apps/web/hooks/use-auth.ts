@@ -1,6 +1,6 @@
 "use client";
 
-import { permissionSatisfied, type LoginDto, type RegisterDto, type SessionUser } from "@restaurant-crm/types";
+import { permissionSatisfied, type LoginDto, type PinLoginDto, type RegisterDto, type SessionUser } from "@restaurant-crm/types";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { api } from "@/lib/api";
 
@@ -41,6 +41,31 @@ export function useLogout() {
     mutationFn: () => api.post("/auth/logout"),
     onSuccess: () => {
       queryClient.clear();
+    },
+  });
+}
+
+export interface PinUser {
+  id: string;
+  name: string;
+  roleName: string;
+}
+
+export function usePinUsers() {
+  return useQuery({
+    queryKey: ["auth", "pin-users"],
+    queryFn: () => api.get<PinUser[]>("/auth/pin-users"),
+    staleTime: 60_000,
+  });
+}
+
+export function usePinLogin() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (dto: PinLoginDto) => api.post<{ user: SessionUser }>("/auth/pin-login", dto),
+    onSuccess: (data) => {
+      queryClient.removeQueries({ predicate: (q) => q.queryKey[0] !== "auth" });
+      queryClient.setQueryData(["auth", "me"], data);
     },
   });
 }

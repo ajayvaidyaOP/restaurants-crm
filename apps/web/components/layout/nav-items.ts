@@ -47,6 +47,6 @@ export const NAV_ITEMS: NavItem[] = [
   { labelKey: "nav.reports", href: "/reports", icon: BarChart3, permission: "reports.access" },
   { labelKey: "nav.marketing", href: "/marketing", icon: Megaphone, permission: "marketing.manage" },
   { labelKey: "nav.operations", href: "/operations", icon: Wrench, permission: "operations.manage" },
-  { labelKey: "nav.attendance", href: "/attendance", icon: Clock },
+  { labelKey: "nav.attendance", href: "/attendance", icon: Clock, permission: "attendance.manage" },
   { labelKey: "nav.settings", href: "/settings", icon: Settings, permission: "settings.manage" },
 ];

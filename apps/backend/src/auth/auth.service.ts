@@ -179,6 +179,23 @@ export class AuthService {
     return this.issueSession(user);
   }
 
+  async listPinUsers() {
+    const users = await this.prisma.user.findMany({
+      where: { isActive: true, pinHash: { not: null } },
+      select: {
+        id: true,
+        name: true,
+        role: { select: { name: true } },
+      },
+      orderBy: { name: 'asc' },
+    });
+    return users.map((u) => ({
+      id: u.id,
+      name: u.name,
+      roleName: u.role.name,
+    }));
+  }
+
   private async issueSession(
     user: Parameters<AuthService['toSessionUser']>[0],
   ) {

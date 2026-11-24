@@ -95,6 +95,12 @@ export class AuthController {
     return { user };
   }
 
+  @Throttle({ default: { limit: 30, ttl: 60_000 } })
+  @Get('pin-users')
+  listPinUsers() {
+    return this.authService.listPinUsers();
+  }
+
   @Post('logout')
   logout(@Res({ passthrough: true }) res: Response) {
     res.clearCookie(SESSION_COOKIE, {
